@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :employees
       get "/salary_calculation/:employee_id", to: "salary_calculations#show"
+      get "/salary_metrics/country", to: "salary_metrics#by_country"
+      get "/salary_metrics/job_title", to: "salary_metrics#by_job_title"
     end
   end
 end
