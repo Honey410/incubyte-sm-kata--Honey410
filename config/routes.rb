@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :employees
+      get "/salary_calculation/:employee_id", to: "salary_calculations#show"
     end
   end
 end
