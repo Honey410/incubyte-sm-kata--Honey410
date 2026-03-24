@@ -1,5 +1,4 @@
 class Api::V1::SalaryMetricsController < ApplicationController
-
   def by_country
     employees = Employee.where(country: params[:country])
 

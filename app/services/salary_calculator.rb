@@ -6,7 +6,7 @@ class SalaryCalculator
   def call
     gross = @employee.salary
     deduction= calculate_deduction(gross)
-    net = gross - deduction 
+    net = gross - deduction
 
     {
       gross_salary: gross.to_f,
@@ -18,9 +18,9 @@ class SalaryCalculator
   private
   def calculate_deduction(gross)
     case @employee.country.downcase
-    when 'united states'
+    when "united states"
       gross * 0.12
-    when 'india'
+    when "india"
       gross * 0.10
     else
       0
