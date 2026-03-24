@@ -1,0 +1,66 @@
+---
+openapi: 3.0.1
+info:
+  title: Employee API
+  version: v1
+paths:
+  "/api/v1/employees":
+    post:
+      summary: Creates an employee
+      tags:
+      - Employees
+      parameters: []
+      responses:
+        '201':
+          description: employee created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                job_title:
+                  type: string
+                country:
+                  type: string
+                salary:
+                  type: number
+              required:
+              - full_name
+              - job_title
+              - country
+              - salary
+  "/api/v1/salary_calculation/{employee_id}":
+    get:
+      summary: Calculates salary
+      tags:
+      - Salary
+      parameters:
+      - name: employee_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: salary calculated
+  "/api/v1/salary_metrics/country":
+    get:
+      summary: Country salary metrics
+      tags:
+      - Metrics
+      parameters:
+      - name: country
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: metrics returned
+servers:
+- url: http://localhost:3000
+  variables:
+    defaultHost:
+      default: www.example.com

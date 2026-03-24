@@ -4,7 +4,7 @@ RSpec.describe "Salary Calculation", type: :request do
   it "calculates salary for India" do
     employee = create(:employee, country: "India", salary: 1000)
 
-    get "/salary_calculation/#{employee.id}"
+    get "/api/v1/salary_calculation/#{employee.id}"
 
     json = JSON.parse(response.body)
 

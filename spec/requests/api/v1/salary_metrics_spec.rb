@@ -5,7 +5,7 @@ RSpec.describe "Salary Metrics", type: :request do
     create(:employee, country: "India", salary: 1000)
     create(:employee, country: "India", salary: 2000)
 
-    get "/salary_metrics/country", params: { country: "India" }
+    get "/api/v1/salary_metrics/country", params: { country: "India" }
 
     json = JSON.parse(response.body)
 
